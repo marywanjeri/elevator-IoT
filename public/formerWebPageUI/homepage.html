@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elevator IOT And Digital Twinning</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="data:," />
+        <!-- Line above prevents browsers(eg Chrome and FireFox) from requesting favicon.ico from local server-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <!-- <body style='background-color: #EEEEEE;'> -->
+    <body>
+        <div class="container">
+            <div class="controls">
+                <div class="topnav">
+                    <h1>
+                        INDUSTRY 4.0 IOT ELEVATOR<i class="fas fa-cogs"></i>
+                    </h1>
+                </div>
+                <div class="content">
+                    <!-- Floor Section -->
+                    <div class="floor">
+                        <h3 class="floor-title">FLOOR</h3>
+                        <div class="floor-btns">
+                            <button class="floor-btn" onclick="ground_FloorButton_Tapped()">
+                                GND
+                            </button>
+                            <button class="floor-btn" onclick="first_FloorButton_Tapped()">
+                                FLOOR 1
+                            </button>
+                            <button class="floor-btn" onclick="second_FloorButton_Tapped()">
+                                FLOOR 2
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Power Section -->
+                    <div class="power">
+                        <p>POWER AND STOP</p>
+                        <div class="power-btns">
+                            <button class="start power-btn" onclick="startButton_Tapped()">
+                                START
+                            </button>
+                            <button class="stop power-btn" onclick="stopButton_Tapped()">
+                                STOP
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--------TESTING----->
+                <div class="flex">
+                    <h4>Socket is connected:</h4>
+                    <h3
+                        id="socketConnected_value"
+                        style="display: inline-block"
+                    >false
+                    </h3>
+                </div>
+                <button class="floor-btn" onclick="toggle_OffOnMode_Button_Tapped()">
+                    Go Offline
+                </button>
+                <!------------->
+
+                <div class="sensor" style="text-align: center">
+                    <div class="flex">
+                        <h4>Current Floor:</h4>
+                        <h3
+                            id="currentFloor_value"
+                            style="display: inline-block"
+                        >
+                            0
+                        </h3>
+                    </div>
+                    <div class="flex">
+                        <h4>Motion:</h4>
+                        <h3 id="motion_value" style="display: inline-block">
+                            False
+                          
+                        </h3>
+                    </div>
+                    <div class="flex">
+                        <h4>Direction:</h4>
+                        <h3 id="direction_value" style="display: inline-block">
+                            Stationary
+                        </h3>
+                    </div>
+
+                    <h4>Angular Velocity:</h4>
+                    <meter
+                        value="1"
+                        min="0"
+                        max="100"
+                        id="angularVelocity_meter"
+                    ></meter>
+                    <h3
+                        id="angularVelocity_value"
+                        style="display: inline-block"
+                    >
+                        0
+                    </h3>
+                    <h4>Linear Velocity:</h4>
+                    <meter
+                        value="1"
+                        min="0"
+                        max="100"
+                        id="linearVelocity_meter"
+                    ></meter>
+                    <h3 id="linearVelocity_value" style="display: inline-block">
+                        0
+                    </h3>
+
+                    <div class="flex">
+                      <h4></h4>
+                      <h3  style="display: inline-block">
+                      </h3>
+                    </div>
+                    <div class="flex">
+                      <h4></h4>
+                      <h3  style="display: inline-block">
+                    </h3>
+                    </div>
+                    <div class="flex">
+                      <h4></h4>
+                      <h3  style="display: inline-block">
+                    </h3>
+                    </div>
+                    <div class="flex">
+                      <h4>Random number:</h4>
+                      <h3 id="rand1" style="display: inline-block">
+                          0
+                      </h3>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <div class="view">
+                <model-viewer
+                    id="elevatorModelTag"
+                    src=""
+                    alt="Elevator 3D model"
+                    orientation="0deg 0deg -38deg"
+                    shadow-intensity="1"
+                    camera-controls
+                    ar
+                    ios-src=""
+                    with-credentials="true"
+                >
+                </model-viewer>
+            </div>
+        </div>
+
+        <script src = "scripts/jsZip.js"></script>
+        <script src="unCompressZip.js"></script>
+        <!-- <script type="module" src="modelViewerScript.js"></script> -->
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
+        <script src="scripts/socketIO/socketIO.js"></script>
+        <script src="socketClient.js"></script>
+        <script src = "scripts/animations.js"></script>
+        <script>
+            window.onload = function (event) {
+                initClientSocket();
+                getGLBFile();
+                initializeObjectModel();
+            };
+        </script>
+    </body>
+</html>

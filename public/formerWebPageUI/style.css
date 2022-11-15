@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.flex{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#BTN_SEND_BACK {
+  width: 40%;
+  height: 20%;
+  background-color: darkseagreen;
+  border: 1px solid forestgreen;
+  border-radius: 10px;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+.Random {
+  display: flex;
+  font-size: 15px;
+  
+}
+/* Container */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container .controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.container .view {
+  flex: 1;
+  height: 100%;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.topnav {
+  background-color: darkcyan;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topnav h1{
+text-align: center;
+color: white;
+}
+.content{
+width: 100%;
+}
+
+/* Floor sectin */
+.floor {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+}
+.floor-btns{
+margin-top: 20px;
+}
+.floor-btn{
+border: none;
+padding: 10px 25px;
+border-radius: 5px;
+cursor: pointer;
+background-color: #3e8d9f;
+color: white;
+transition: all .3s ease;
+}
+.floor-btn:hover{
+background-color: #205864;
+}
+
+
+/* Power section */
+.power {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+}
+.power-btns{
+margin-top: 20px;
+}
+
+.power-btn{
+border: none;
+padding: 10px 25px;
+border-radius: 5px;
+cursor: pointer;
+color: white;
+transition: all .3s ease;
+}
+
+.start {
+  background-color: yellowgreen; 
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+.start:hover{
+background-color: #5f7e1e;
+}
+.stop {
+  background-color: red; /* red */
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+.stop:hover{
+background-color: #bd0000;
+}
+
+/* Sensor Section */
+
+.sensor{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+width: 100%;
+padding-top: 20px;
+background-color: #eee;
+flex: 1;
+}
+
+@media screen and (max-width: 800px) {
+.container{
+  flex-direction: column;
+}
+.sensor{
+  padding: 20px;
+}
+
+}
